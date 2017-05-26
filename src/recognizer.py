@@ -43,9 +43,12 @@ def get_pool_table(img):
     # Floodfill from center's point
     cv2.floodFill(pool_table_ff, mask, (width // 2, height // 2), 255)
 
+    '''
     cv2.imshow('pool_table_cc', pool_table_ff)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
+    '''
+
     return pool_table_ff
 
 
@@ -70,9 +73,11 @@ def get_circles(image_path):
             # draw the center of the circle
             cv2.circle(cimg,(i[0],i[1]),2,(0,0,255),3)
 
+        '''
         cv2.imshow('detected circles',cimg)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
+        '''
 
     return circles
 
@@ -100,11 +105,13 @@ def filter_circles(pool_table_bgr, pool_table_gray, circles):
 
     circles_filtered = np.array(circles_filtered)
 
+    '''
     cv2.imshow('detected circles',pool_table_gray)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
+    '''
 
-    print("Numer of balls: " + str(len(circles_filtered)))
+    print("Number of balls: " + str(len(circles_filtered)))
 
     return circles_filtered
 
@@ -152,6 +159,9 @@ def find_bound(pool_table, x, y, direction):
 
 def find_position(pool_table, balls):
 
+    HEIGHT_TABLE = 4000
+    WIDTH_TABLE = 1000
+
     balls_pos = []
 
     for ball in balls:
@@ -162,8 +172,15 @@ def find_position(pool_table, balls):
         left = y - find_bound(pool_table, x, y, Direction.LEFT)
         right = y - find_bound(pool_table, x, y, Direction.RIGHT)
 
-        balls_pos.append([up, left])
-        print([up, left])
+        row = (up * HEIGHT_TABLE) // (down - up)
+        col = (left * WIDTH_TABLE) // (right - left)
+
+        balls_pos.append([row, col])
+        #print([up, left])
+
+    balls_pos = sorted(balls_pos, key=lambda x: x[0])
+    for ball in balls_pos:
+        print(ball)
 
     balls_pos = np.array(balls_pos)
 

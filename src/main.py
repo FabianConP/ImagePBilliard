@@ -1,7 +1,7 @@
 import cv2
 import recognizer as rc
 
-for i in range(10,17):
+for i in range(10,11):
     print("Image: " + str(i))
     image_path = "../images/billiard/b" + str(i) + ".jpg"
     img = cv2.imread(image_path)
