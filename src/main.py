@@ -1,7 +1,6 @@
 import cv2
 import recognizer as rc
 
-print("Hlla")
 for i in range(10,11):
     print("Image: " + str(i))
     image_path = "../images/billiard/b" + str(i) + ".jpg"
@@ -11,6 +10,4 @@ for i in range(10,11):
     circles = rc.get_circles(image_path)
     circlesf = rc.filter_circles(img.copy(), pool_table.copy(), circles.copy())
     balls_pos = rc.find_position(pool_table, circlesf)
-
-
 

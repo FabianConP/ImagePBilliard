@@ -155,7 +155,7 @@ def solve(bp):
     print([v for v in r if v >= 0])
 
 
-solve([])
+#solve([])
 
 #plt.imshow(image)
 #plt.show()

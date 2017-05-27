@@ -145,14 +145,15 @@ def find_bound(pool_table, x, y, direction):
     width, height = pool_table.shape
 
     if direction == Direction.UP:
-        p = find_bound_bs(pool_table[:height // 2, y].flatten(), direction)
+        p = find_bound_bs(pool_table[:x, y].flatten(), direction)
     elif direction == Direction.DOWN:
-        p = find_bound_bs(pool_table[height // 2:, y].flatten(), direction)
+        p = find_bound_bs(pool_table[x:, y].flatten(), direction)
+        p += x
     elif direction == Direction.LEFT:
-        p = find_bound_bs(pool_table[x, :width // 2], direction)
+        p = find_bound_bs(pool_table[x, :y], direction)
     elif direction == Direction.RIGHT:
-        p = find_bound_bs(pool_table[x, width // 2:], direction)
-
+        p = find_bound_bs(pool_table[x, y:], direction)
+        p += y
     return p
 
 
@@ -171,11 +172,11 @@ def find_position(pool_table, balls):
         left = find_bound(pool_table, x, y, Direction.LEFT)
         right = find_bound(pool_table, x, y, Direction.RIGHT)
 
-        row = (up * HEIGHT_TABLE) // (down - up)
-        col = (left * WIDTH_TABLE) // (right - left)
+        row = ((x - up) * HEIGHT_TABLE) // (down - up)
+        col = ((y - left) * WIDTH_TABLE) // (right - left)
 
         balls_pos.append([row, col])
-        print([up, down, left, right])
+        print([row, col])
 
     balls_pos = np.array(balls_pos)
 
