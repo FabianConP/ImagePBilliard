@@ -1,7 +1,9 @@
 import numpy as np
 import cv2
 import balls
+import simulator
 from enum import Enum
+
 
 def get_pool_table(img):
 
@@ -99,27 +101,25 @@ def filter_circles(pool_table_bgr, pool_table_gray, circles):
                 and balls.is_ball(pool_table_hsv, x, y, 10, 5)
 
         if is_ball:
-            print(circles[0][i])
             circles_filtered.append(circles[0][i])
             cv2.circle(pool_table_gray, (y, x), r, (255 // 2, 255 // 2, 255 // 2), 2)
 
+    circles_filtered = sorted(circles_filtered, key=lambda x:x[2])
+    print('\n'.join(str(x) for x in circles_filtered))
     circles_filtered = np.array(circles_filtered)
 
-    '''
     cv2.imshow('detected circles',pool_table_gray)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
-    '''
 
     print("Number of balls: " + str(len(circles_filtered)))
 
     return circles_filtered
 
 
-
 class Direction(Enum):
-    UP  = 1
-    DOWN  = 2
+    UP = 1
+    DOWN = 2
     LEFT = 3
     RIGHT = 4
 
@@ -153,34 +153,29 @@ def find_bound(pool_table, x, y, direction):
     elif direction == Direction.RIGHT:
         p = find_bound_bs(pool_table[x, width // 2:], direction)
 
-    #print(p)
     return p
 
 
 def find_position(pool_table, balls):
 
-    HEIGHT_TABLE = 4000
-    WIDTH_TABLE = 1000
+    HEIGHT_TABLE = simulator.table_height
+    WIDTH_TABLE = simulator.table_width
 
     balls_pos = []
 
     for ball in balls:
         y, x, r = ball
 
-        up = x - find_bound(pool_table, x, y, Direction.UP)
-        down = x - find_bound(pool_table, x, y, Direction.DOWN)
-        left = y - find_bound(pool_table, x, y, Direction.LEFT)
-        right = y - find_bound(pool_table, x, y, Direction.RIGHT)
+        up = find_bound(pool_table, x, y, Direction.UP)
+        down = find_bound(pool_table, x, y, Direction.DOWN)
+        left = find_bound(pool_table, x, y, Direction.LEFT)
+        right = find_bound(pool_table, x, y, Direction.RIGHT)
 
         row = (up * HEIGHT_TABLE) // (down - up)
         col = (left * WIDTH_TABLE) // (right - left)
 
         balls_pos.append([row, col])
-        #print([up, left])
-
-    balls_pos = sorted(balls_pos, key=lambda x: x[0])
-    for ball in balls_pos:
-        print(ball)
+        print([up, down, left, right])
 
     balls_pos = np.array(balls_pos)
 
