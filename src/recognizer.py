@@ -1,5 +1,6 @@
 import numpy as np
 import cv2
+import cv2.cv as cv
 import balls
 import simulator
 from enum import Enum
@@ -24,7 +25,7 @@ def get_pool_table(img):
     mask = 255 - cv2.inRange(hsv, lower, upper)
 
     ret, thresh = cv2.threshold(mask, 127, 255, 0)
-    im2, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
     # Get contour of pool table
     areas = [cv2.contourArea(contour) for contour in contours]
@@ -59,9 +60,9 @@ def get_circles(img):
     cimg = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
 
     # Get circles from Hough Circles transform
-    # 1) Makes a Edge detection
+    # 1) Makes an Edge detection
     # 2) Filter circles with radios between 5 and 35
-    circles = cv2.HoughCircles(blurred, cv2.HOUGH_GRADIENT, 1, 90,
+    circles = cv2.HoughCircles(blurred, cv.CV_HOUGH_GRADIENT, 1, 90,
                                param1=130, param2=15, minRadius=5, maxRadius=35)
 
     # If there're circles
@@ -73,7 +74,7 @@ def get_circles(img):
             cv2.circle(cimg, (i[0], i[1]), i[2], (0, 255, 0), 2)
             # draw the center of the circle
             cv2.circle(cimg, (i[0], i[1]), 2, (0, 0, 255), 3)
-
+    
     return circles
 
 
@@ -83,10 +84,8 @@ def filter_circles(pool_table_bgr, pool_table_gray, circles):
 
     # Convert image in HSV space (better for color comparisons)
     pool_table_hsv = cv2.cvtColor(pool_table_bgr, cv2.COLOR_BGR2HSV)
-
     # Get size of image
     height, width = pool_table_gray.shape
-
     # Try to filter each circle
     for i in range(len(circles[0])):
         # Get position and radio
@@ -95,20 +94,19 @@ def filter_circles(pool_table_bgr, pool_table_gray, circles):
         # Is inside pool table and
         # Has a typical ball's color
         is_ball = x in range(height) and y in range(width) \
-                  and pool_table_gray[x][y] != pool_table_gray[0][0] \
+                  and pool_table_gray[x][y] != pool_table_gray[0][len(pool_table_gray[0])-1] \
                   and balls.is_ball(pool_table_hsv, x, y, 10, 5)
 
         # Add to filtered circles and draw circle in gray image
         if is_ball:
             circles_filtered.append(circles[0][i])
             cv2.circle(pool_table_gray, (y, x), r, (255 // 2, 255 // 2, 255 // 2), 2)
-
+    cv2.imwrite( "../images/billiard/circles.jpg", pool_table_gray)
     # Sort circles for radio
     circles_filtered = sorted(circles_filtered, key=lambda x: x[2])
     print('\n'.join(str(x) for x in circles_filtered))
     circles_filtered = np.array(circles_filtered)
     # print("Number of balls: " + str(len(circles_filtered)))
-
     return circles_filtered
 
 
