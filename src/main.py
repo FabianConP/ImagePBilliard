@@ -1,50 +1,42 @@
-import cv2
 import recognizer as rc
 import simulator as sm
 import base64
-from matplotlib import pyplot as plt
-import io
-import matplotlib.image as mpimg
 import numpy as np
 from PIL import Image
 import cv2
 from StringIO import StringIO
 
 
+# Get numpy image from Image base64 coding
 def data_uri_to_cv2_img(base64_string):
+    # Buffer for image
     sbuf = StringIO()
+    # Decode image
     sbuf.write(base64.b64decode(base64_string))
+    # Create image from buffer
     pimg = Image.open(sbuf)
+    # Create Numpy image from Image
     return cv2.cvtColor(np.array(pimg), cv2.COLOR_RGB2BGR)
 
-class Game():
 
+# Aims to manage table, balls and simulation
+class Game:
     def __init__(self, img_str):
-        #img = data_uri_to_cv2_img(img_str)
+        # img = data_uri_to_cv2_img(img_str)
         image_path = "../images/billiard/b10.jpg"
         img = cv2.imread(image_path)
+        # Segment table
         pool_table = rc.get_pool_table(img.copy())
+        # Get circles
         circles = rc.get_circles(img)
+        # Get balls based on image
         circlesf = rc.filter_circles(img.copy(), pool_table.copy(), circles.copy())
+        # Get balls position based on table
         balls_pos = rc.find_position(pool_table, circlesf)
+        # Get angles from simulation for each ball
         self.angles = sm.solve(balls_pos)
         print(self.angles)
 
+    # Return angles
     def get_angles(self):
         return self.angles
-'''
-    pool_table = rc.get_pool_table(img.copy())
-    circles = rc.get_circles(image_path)
-    circlesf = rc.filter_circles(img.copy(), pool_table.copy(), circles.copy())
-    balls_pos = rc.find_position(pool_table, circlesf)
-    angles = sm.solve(balls_pos)
-'''
-
-'''
-    img = cv2.imread()
-
-for i in range(10,11):
-    print("Image: " + str(i))
-    image_path = "../images/billiard/b" + str(i) + ".jpg"
-    img = cv2.imread(image_path)
-'''
