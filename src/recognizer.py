@@ -3,6 +3,7 @@ import cv2
 import balls
 import simulator
 from enum import Enum
+import math
 
 
 def get_pool_table(img):
@@ -54,13 +55,14 @@ def get_pool_table(img):
     return pool_table_ff
 
 
-def get_circles(image_path):
+def get_circles(img):
 
-    img = cv2.imread(image_path)
+    #img = cv2.imread(image_path)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     blurred = cv2.GaussianBlur(gray, (3, 3), 0)
 
-    img = cv2.imread(image_path, 0)
+    #img = cv2.imread(image_path, 0)
+    img = gray
     img = cv2.medianBlur(img,5)
     cimg = cv2.cvtColor(img,cv2.COLOR_GRAY2BGR)
 
@@ -108,9 +110,9 @@ def filter_circles(pool_table_bgr, pool_table_gray, circles):
     print('\n'.join(str(x) for x in circles_filtered))
     circles_filtered = np.array(circles_filtered)
 
-    cv2.imshow('detected circles',pool_table_gray)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    #cv2.imshow('detected circles',pool_table_gray)
+    #cv2.waitKey(0)
+    #cv2.destroyAllWindows()
 
     print("Number of balls: " + str(len(circles_filtered)))
 
@@ -175,13 +177,27 @@ def find_position(pool_table, balls):
         row = ((x - up) * HEIGHT_TABLE) // (down - up)
         col = ((y - left) * WIDTH_TABLE) // (right - left)
 
-        balls_pos.append([row, col])
+        #balls_pos.append([HEIGHT_TABLE - row - , col])
+        balls_pos.append([row, WIDTH_TABLE - col - 1])
+        '''
         print([row, col])
+        row, col = solve_pers([x, col, up, down])
+        print([row, col])
+        '''
 
     balls_pos = np.array(balls_pos)
 
     return balls_pos
 
+def solve_pers(point):
+    x, y, up, down = point
+    s12 = down - up
+    s13 = 1250
+    s23 = math.sqrt(s13*s13 - s12*s12)
+    b = x - up
+    c = (b * s23) / s12
+    _x = math.hypot(b, c)
+    return _x, y
 
 
 #img = cv2.imread('./images/billiard/b15.jpg')

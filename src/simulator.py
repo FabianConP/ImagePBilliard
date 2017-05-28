@@ -13,7 +13,7 @@ ball_radio = 10
 balls_number = 3
 friction = 0.1
 initial_speed = 20
-time_steep = 0.5
+time_steep = 1
 image = Image.new("RGB", (table_height, table_width))
 draw = ImageDraw.Draw(image)
 
@@ -101,7 +101,7 @@ def simulation(angle):
 
     draw.rectangle([(0,0), (table_height - 1, table_width - 1)], fill=(0,0,0))
 
-    balls_position = [(20, 20), (130, 40), (280, 450)]
+    #balls_position = [(20, 20), (130, 40), (280, 450)]
 
     velocity = [initial_speed, 0, 0]
     angles = [angle, 0, 0]
@@ -113,6 +113,9 @@ def simulation(angle):
         x, y = balls_position[ball_id]
         balls.append(BallS(x, y, colors[ball_id], angles[ball_id], velocity[ball_id]))
         draw.ellipse([(x - ball_radio, y - ball_radio),  (x + ball_radio, y + ball_radio)])
+
+    #plt.imshow(image)
+    #plt.show()
 
     touches = [None, False, False]
 
@@ -150,9 +153,20 @@ def simulation(angle):
 def solve(bp):
     global balls_position
     balls_position = bp
-    pool = mp.Pool(processes=mp.cpu_count())
-    r = pool.map(simulation, range(0, 360))
-    print([v for v in r if v >= 0])
+    angles = []
+    for i in range(len(balls_position)):
+        aux = balls_position[0].copy()
+        balls_position[0] = balls_position[i].copy()
+        balls_position[i] = aux
+        pool = mp.Pool(processes=mp.cpu_count())
+        r = pool.map(simulation, range(0, 360))
+        r = [v for v in r if v >= 0]
+        #print(r)
+        if len(r) > 0:
+            angles.append(r[0])
+
+    return angles
+
 
 
 #solve([])
