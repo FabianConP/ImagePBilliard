@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ImageP Billiard</string>
+    <string name="am_title">Billiard tutor</string>
+    <string name="am_description">Take a photo and we\'ll give you a suggestion.\n\nPress on camera button and enjoy it!</string>
+</resources>
