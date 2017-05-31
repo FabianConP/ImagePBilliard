@@ -11,5 +11,5 @@ public interface APIService {
 
     @POST("/")
     @FormUrlEncoded
-    Call<Ball> sendImage(@Field("img_str") String img_str);
+    Call<BallResult> sendImage(@Field("img_str") String img_str);
 }

@@ -1,5 +1,13 @@
 [
     {
+        "merged": "/home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/ball.9.png",
+        "source": "/home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/res/drawable-xxxhdpi/ball.9.png"
+    },
+    {
+        "merged": "/home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/table.9.png",
+        "source": "/home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/res/drawable-xxxhdpi/table.9.png"
+    },
+    {
         "merged": "/home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/logo.9.png",
         "source": "/home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/res/drawable-xxxhdpi/logo.9.png"
     }

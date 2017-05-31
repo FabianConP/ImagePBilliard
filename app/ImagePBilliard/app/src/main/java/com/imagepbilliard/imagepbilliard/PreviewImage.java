@@ -1,9 +1,11 @@
 package com.imagepbilliard.imagepbilliard;
 
 import android.app.ActionBar;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
@@ -19,6 +22,7 @@ import java.util.List;
 import model.APIService;
 import model.ApiUtils;
 import model.Ball;
+import model.BallResult;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -27,11 +31,13 @@ public class PreviewImage extends AppCompatActivity {
 
     private ImageView mImgPreview;
     private FloatingActionButton mBtnSend;
+    private ProgressDialog mProgressSend;
 
     private Bitmap mBitmapImage;
     private APIService mAPIService;
 
     static final String TAG = PreviewImage.class.getSimpleName();
+    static final String BALL_RESULT = "BALL_RESULT";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,12 +59,18 @@ public class PreviewImage extends AppCompatActivity {
 
         mAPIService = ApiUtils.getAPIService();
 
+        mProgressSend = new ProgressDialog(getApplicationContext());
+        mProgressSend=new ProgressDialog(this);
+        mProgressSend.setMessage("Analyzing");
+        mProgressSend.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        mProgressSend.setIndeterminate(true);
+        //mProgressSend.setCancelable(false);
+
         mBtnSend = (FloatingActionButton) findViewById(R.id.pv_send);
 
         mBtnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Sending",  Toast.LENGTH_SHORT).show();
                 String encoded = transformImageBase64(mBitmapImage);
                 sendPostRequest(encoded);
             }
@@ -74,18 +86,21 @@ public class PreviewImage extends AppCompatActivity {
     }
 
     private void sendPostRequest(String img_str) {
-        mAPIService.sendImage(img_str).enqueue(new Callback<Ball>() {
+        mProgressSend.show();
+        mAPIService.sendImage(img_str).enqueue(new Callback<BallResult>() {
             @Override
-            public void onResponse(Call<Ball> call, Response<Ball> response) {
+            public void onResponse(Call<BallResult> call, Response<BallResult> response) {
                 if(response.isSuccessful()){
+                    mProgressSend.dismiss();
+                    BallResult ballResult = response.body();
                     Intent intentSuggestion = new Intent(getApplicationContext(), Suggestion.class);
-                    intentSuggestion.putExtra("cnt", response.body().toString());
+                    intentSuggestion.putExtra(BALL_RESULT, ballResult);
                     startActivity(intentSuggestion);
                 }
             }
 
             @Override
-            public void onFailure(Call<Ball> call, Throwable t) {
+            public void onFailure(Call<BallResult> call, Throwable t) {
                 Log.e(TAG, "Unable to submit post to API." + t.getMessage());
             }
         });

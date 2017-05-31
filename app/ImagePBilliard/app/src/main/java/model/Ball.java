@@ -3,25 +3,19 @@ package model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Ball {
+import java.io.Serializable;
 
-    @SerializedName("x")
-    @Expose
-    private Integer x;
+public class Ball implements Serializable{
+
     @SerializedName("y")
     @Expose
     private Integer y;
+    @SerializedName("x")
+    @Expose
+    private Integer x;
     @SerializedName("angle")
     @Expose
     private Integer angle;
-
-    public Integer getX() {
-        return x;
-    }
-
-    public void setX(Integer x) {
-        this.x = x;
-    }
 
     public Integer getY() {
         return y;
@@ -29,6 +23,14 @@ public class Ball {
 
     public void setY(Integer y) {
         this.y = y;
+    }
+
+    public Integer getX() {
+        return x;
+    }
+
+    public void setX(Integer x) {
+        this.x = x;
     }
 
     public Integer getAngle() {

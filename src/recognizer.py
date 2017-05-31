@@ -184,20 +184,6 @@ def find_position(pool_table, balls):
 
     return balls_pos
 
-
-# Solver perspective problem in position
-# [Not working]
-def solve_pers(point):
-    x, y, up, down = point
-    s12 = down - up
-    s13 = 1250
-    s23 = math.sqrt(s13 * s13 - s12 * s12)
-    b = x - up
-    c = (b * s23) / s12
-    _x = math.hypot(b, c)
-    return _x, y
-
-
 # Script for show an image with OpenCV
 '''
 cv2.imshow('detected circles',cimg)

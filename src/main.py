@@ -32,11 +32,15 @@ class Game:
         # Get balls based on image
         circlesf = rc.filter_circles(img.copy(), pool_table.copy(), circles.copy())
         # Get balls position based on table
-        balls_pos = rc.find_position(pool_table, circlesf)
+        self.balls_pos = rc.find_position(pool_table, circlesf)
         # Get angles from simulation for each ball
-        self.angles = sm.solve(balls_pos)
+        self.angles = sm.solve(self.balls_pos)
         print(self.angles)
 
     # Return angles
     def get_angles(self):
         return self.angles
+
+    # Return balls position
+    def get_balls_position(self):
+        return self.balls_pos
