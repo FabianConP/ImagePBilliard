@@ -23,7 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PreviewImage"></activity>
+        <activity android:name=".PreviewImage" />
+        <activity android:name=".Suggestion"></activity>
     </application>
 
 </manifest>

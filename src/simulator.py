@@ -158,9 +158,9 @@ def simulation(angle):
                         # Detect if makes a win touch
                         if (_b2_id == 1 and touches[2]) \
                                 or (_b2_id == 2 and touches[1]):
-                            if ans:
-                                plt.imshow(image)
-                                plt.show()
+                            #if ans:
+                            #plt.imshow(image)
+                            #plt.show()
                             return angle
                         # Save touch
                         touches[b2_id] = True
@@ -190,15 +190,14 @@ def solve(bp):
         # Makes simulation with parallel programming
         pool = mp.Pool(processes=mp.cpu_count())
         r = pool.map(simulation, range(0, 360))
+        simulation(0)
         # Filter winner angles
         r = [v for v in r if v >= 0]
         # Get first winner angle
         if len(r) > 0:
             angles.append(r[0])
             balls_order.append(balls_position.copy())
-    global ans
-    global image
-    global draw
+    global ans, image, draw
     ans = True
     for x in range(len(angles)):
         balls_position = balls_order[x]

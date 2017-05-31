@@ -8,11 +8,20 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
+import java.util.List;
+
+import model.APIService;
+import model.ApiUtils;
+import model.Ball;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PreviewImage extends AppCompatActivity {
 
@@ -20,6 +29,9 @@ public class PreviewImage extends AppCompatActivity {
     private FloatingActionButton mBtnSend;
 
     private Bitmap mBitmapImage;
+    private APIService mAPIService;
+
+    static final String TAG = PreviewImage.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,26 +51,44 @@ public class PreviewImage extends AppCompatActivity {
 
         mImgPreview.setImageBitmap(mBitmapImage);
 
+        mAPIService = ApiUtils.getAPIService();
+
         mBtnSend = (FloatingActionButton) findViewById(R.id.pv_send);
 
         mBtnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Sending",  Toast.LENGTH_SHORT).show();
+                String encoded = transformImageBase64(mBitmapImage);
+                sendPostRequest(encoded);
             }
         });
     }
 
-    private void transformImageBase64(Bitmap bitmap){
+    private String transformImageBase64(Bitmap bitmap){
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos); //bm is the bitmap object
         byte[] byteArrayImage = baos.toByteArray();
         String encodedImage = Base64.encodeToString(byteArrayImage, Base64.DEFAULT);
-
+        return encodedImage;
     }
 
-    private void sendPostRequest(String img_str){
+    private void sendPostRequest(String img_str) {
+        mAPIService.sendImage(img_str).enqueue(new Callback<Ball>() {
+            @Override
+            public void onResponse(Call<Ball> call, Response<Ball> response) {
+                if(response.isSuccessful()){
+                    Intent intentSuggestion = new Intent(getApplicationContext(), Suggestion.class);
+                    intentSuggestion.putExtra("cnt", response.body().toString());
+                    startActivity(intentSuggestion);
+                }
+            }
 
+            @Override
+            public void onFailure(Call<Ball> call, Throwable t) {
+                Log.e(TAG, "Unable to submit post to API." + t.getMessage());
+            }
+        });
     }
 
 }

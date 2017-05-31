@@ -1,6 +1,6 @@
 import numpy as np
 import cv2
-import cv2.cv as cv
+#import cv2.cv as cv
 import balls
 import simulator
 from enum import Enum
@@ -25,7 +25,7 @@ def get_pool_table(img):
     mask = 255 - cv2.inRange(hsv, lower, upper)
 
     ret, thresh = cv2.threshold(mask, 127, 255, 0)
-    contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    im2, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
     # Get contour of pool table
     areas = [cv2.contourArea(contour) for contour in contours]
@@ -62,7 +62,7 @@ def get_circles(img):
     # Get circles from Hough Circles transform
     # 1) Makes an Edge detection
     # 2) Filter circles with radios between 5 and 35
-    circles = cv2.HoughCircles(blurred, cv.CV_HOUGH_GRADIENT, 1, 90,
+    circles = cv2.HoughCircles(blurred, cv2.HOUGH_GRADIENT, 1, 90,
                                param1=130, param2=15, minRadius=5, maxRadius=35)
 
     # If there're circles
@@ -101,7 +101,7 @@ def filter_circles(pool_table_bgr, pool_table_gray, circles):
         if is_ball:
             circles_filtered.append(circles[0][i])
             cv2.circle(pool_table_gray, (y, x), r, (255 // 2, 255 // 2, 255 // 2), 2)
-    cv2.imwrite( "../images/billiard/circles.jpg", pool_table_gray)
+    #cv2.imwrite( "../images/billiard/circles.jpg", pool_table_gray)
     # Sort circles for radio
     circles_filtered = sorted(circles_filtered, key=lambda x: x[2])
     print('\n'.join(str(x) for x in circles_filtered))

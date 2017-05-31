@@ -40,4 +40,3 @@ class Game:
     # Return angles
     def get_angles(self):
         return self.angles
-Game("algo")
