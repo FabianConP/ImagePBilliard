@@ -10,20 +10,24 @@ import cv2
 # NOTE: using the 'eval' function is bad form, but for this example
 # let's just roll with it -- in future posts I'll show you how to
 # automatically determine the coordinates without pre-supplying them
- 
-image = cv2.imread("../images/billiard/b10.jpg")
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-img=mpimg.imread("../images/billiard/b10.jpg")
-imgplot = plt.imshow(img)
-plt.show()
-pts = np.array([(430, 150), (950,150), (1300,730), (0, 730)], dtype = "float32")
 
-# apply the four point tranform to obtain a "birds eye view" of
-# the image
-warped = four_point_transform(image, pts)
+def generate_wrapped(path):
+	 
+	image = cv2.imread(path)
+	#import matplotlib.pyplot as plt
+	#import matplotlib.image as mpimg
+	#img=mpimg.imread("../images/billiard/b10.jpg")
+	#imgplot = plt.imshow(img)
+	#plt.show()
+	pts = np.array([(430, 150), (950,150), (1300,730), (0, 730)], dtype = "float32")
 
-# show the original and warped images
-cv2.imshow("Original", image)
-cv2.imshow("Warped", warped)
-cv2.waitKey(0)
+	# apply the four point tranform to obtain a "birds eye view" of
+	# the image
+	warped = four_point_transform(image, pts)
+
+	# show the original and warped images
+	cv2.imshow("Original", image)
+	cv2.imshow("Warped", warped)
+	cv2.imwrite("../images/billiard/image_sent_wrapped.jpg",warped)
+	#cv2.waitKey(0)
+	return "../images/billiard/image_sent_wrapped.jpg"
