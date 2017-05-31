@@ -5,6 +5,7 @@ import numpy as np
 from PIL import Image
 import cv2
 from StringIO import StringIO
+from imag import generate_wrapped
 
 
 # Get numpy image from Image base64 coding
@@ -23,7 +24,11 @@ def data_uri_to_cv2_img(base64_string):
 class Game:
     def __init__(self, img_str):
         # img = data_uri_to_cv2_img(img_str)
-        image_path = "../images/billiard/b10_wrapped.jpg"
+        image_sent = open("../images/billiard/image_sent.jpg","w")
+        image_sent.write(base64.b64decode(img_str.split("base64")[1]))
+        image_sent.close()
+        image_path = generate_wrapped("../images/billiard/image_sent.jpg")
+        #image_path = "../images/billiard/b10_wrapped.jpg"
         img = cv2.imread(image_path)
         # Segment table
         pool_table = rc.get_pool_table(img.copy())
