@@ -17,6 +17,7 @@ image = Image.new("RGB", (table_height, table_width))
 draw = ImageDraw.Draw(image)
 
 balls_position = []
+ans = False
 # Path simulation color
 colors = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]
 
@@ -110,9 +111,9 @@ class BallS:
 # Simulates a hit with a specified angle
 def simulation(angle):
     global balls_position, colors
-
     # Draw bounds of table
-    draw.rectangle([(0, 0), (table_height - 1, table_width - 1)], fill=(0, 0, 0))
+    if ans:
+        draw.rectangle([(0, 0), (table_height - 1, table_width - 1)], fill=(0, 0, 0))
 
     # Only for testing
     # balls_position = [(20, 20), (130, 40), (280, 450)]
@@ -127,7 +128,8 @@ def simulation(angle):
     for ball_id in range(balls_number):
         x, y = balls_position[ball_id]
         balls.append(BallS(x, y, colors[ball_id], angles[ball_id], velocity[ball_id]))
-        draw.ellipse([(x - ball_radio, y - ball_radio), (x + ball_radio, y + ball_radio)])
+        if ans:
+            draw.ellipse([(x - ball_radio, y - ball_radio), (x + ball_radio, y + ball_radio)])
 
     # Manage ball touches
     touches = [None, False, False]
@@ -156,8 +158,9 @@ def simulation(angle):
                         # Detect if makes a win touch
                         if (_b2_id == 1 and touches[2]) \
                                 or (_b2_id == 2 and touches[1]):
-                            plt.imshow(image)
-                            plt.show()
+                            #if ans:
+                            #plt.imshow(image)
+                            #plt.show()
                             return angle
                         # Save touch
                         touches[b2_id] = True
@@ -176,6 +179,7 @@ def simulation(angle):
 def solve(bp):
     global balls_position
     balls_position = bp
+    balls_order = []
     angles = []
     # Starting from each ball
     for i in range(len(balls_position)):
@@ -186,10 +190,22 @@ def solve(bp):
         # Makes simulation with parallel programming
         pool = mp.Pool(processes=mp.cpu_count())
         r = pool.map(simulation, range(0, 360))
+        simulation(0)
         # Filter winner angles
         r = [v for v in r if v >= 0]
         # Get first winner angle
         if len(r) > 0:
             angles.append(r[0])
+            balls_order.append(balls_position.copy())
+    global ans, image, draw
+    ans = True
+    for x in range(len(angles)):
+        balls_position = balls_order[x]
+        simulation(angles[x])
 
     return angles
+
+# simulation(15)
+
+# plt.imshow(image)
+# plt.show()

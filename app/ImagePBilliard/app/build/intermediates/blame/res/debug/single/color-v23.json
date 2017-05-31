@@ -1,0 +1,46 @@
+[
+    {
+        "merged": "/home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/build/intermediates/res/merged/debug/color-v23/abc_color_highlight_material.xml",
+        "source": "/home/fabianlm18/.android/build-cache/07e1ac2b1283c3630133d2572f95aa05464e794f/output/res/color-v23/abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "/home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/build/intermediates/res/merged/debug/color-v23/abc_tint_switch_thumb.xml",
+        "source": "/home/fabianlm18/.android/build-cache/07e1ac2b1283c3630133d2572f95aa05464e794f/output/res/color-v23/abc_tint_switch_thumb.xml"
+    },
+    {
+        "merged": "/home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/build/intermediates/res/merged/debug/color-v23/abc_tint_spinner.xml",
+        "source": "/home/fabianlm18/.android/build-cache/07e1ac2b1283c3630133d2572f95aa05464e794f/output/res/color-v23/abc_tint_spinner.xml"
+    },
+    {
+        "merged": "/home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/build/intermediates/res/merged/debug/color-v23/abc_tint_seek_thumb.xml",
+        "source": "/home/fabianlm18/.android/build-cache/07e1ac2b1283c3630133d2572f95aa05464e794f/output/res/color-v23/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "/home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/build/intermediates/res/merged/debug/color-v23/abc_btn_colored_borderless_text_material.xml",
+        "source": "/home/fabianlm18/.android/build-cache/07e1ac2b1283c3630133d2572f95aa05464e794f/output/res/color-v23/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "/home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/build/intermediates/res/merged/debug/color-v23/abc_tint_default.xml",
+        "source": "/home/fabianlm18/.android/build-cache/07e1ac2b1283c3630133d2572f95aa05464e794f/output/res/color-v23/abc_tint_default.xml"
+    },
+    {
+        "merged": "/home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/build/intermediates/res/merged/debug/color-v23/design_tint_password_toggle.xml",
+        "source": "/home/fabianlm18/.android/build-cache/f4db25cb56e0fb0ace9bac5c14d30cab414f25b2/output/res/color-v23/design_tint_password_toggle.xml"
+    },
+    {
+        "merged": "/home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/build/intermediates/res/merged/debug/color-v23/abc_tint_switch_track.xml",
+        "source": "/home/fabianlm18/.android/build-cache/07e1ac2b1283c3630133d2572f95aa05464e794f/output/res/color-v23/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/build/intermediates/res/merged/debug/color-v23/abc_tint_edittext.xml",
+        "source": "/home/fabianlm18/.android/build-cache/07e1ac2b1283c3630133d2572f95aa05464e794f/output/res/color-v23/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/build/intermediates/res/merged/debug/color-v23/abc_tint_btn_checkable.xml",
+        "source": "/home/fabianlm18/.android/build-cache/07e1ac2b1283c3630133d2572f95aa05464e794f/output/res/color-v23/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "/home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/build/intermediates/res/merged/debug/color-v23/abc_btn_colored_text_material.xml",
+        "source": "/home/fabianlm18/.android/build-cache/07e1ac2b1283c3630133d2572f95aa05464e794f/output/res/color-v23/abc_btn_colored_text_material.xml"
+    }
+]

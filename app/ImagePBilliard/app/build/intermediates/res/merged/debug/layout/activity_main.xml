@@ -1,0 +1,73 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/am_main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <RelativeLayout
+        android:id="@+id/am_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/am_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="64dp"
+            android:contentDescription="@string/app_name"
+            app:srcCompat="@drawable/logo"
+            tools:layout_editor_absoluteX="32dp"
+            tools:layout_editor_absoluteY="-33dp" />
+
+        <TextView
+            android:id="@+id/am_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/am_logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:contentDescription="Title"
+            android:text="@string/am_title"
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:textColor="@android:color/background_light"
+            tools:text="@string/am_title" />
+
+        <TextView
+            android:id="@+id/am_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/am_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="@string/am_description"
+            android:textAlignment="center"
+            android:textAppearance="@android:style/TextAppearance.Small"
+            tools:text="@string/am_description" />
+
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/am_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        app:layout_anchor="@id/am_content"
+        app:layout_anchorGravity="bottom|end"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/am_gallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        app:layout_anchor="@id/am_content"
+        app:layout_anchorGravity="bottom|start"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+</android.support.design.widget.CoordinatorLayout>

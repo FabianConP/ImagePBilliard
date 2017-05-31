@@ -1,0 +1,117 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:2:1-30:12
+	package
+		ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:3:5-48
+		INJECTED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml
+		INJECTED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml
+		INJECTED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml
+		INJECTED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml
+uses-feature#android.hardware.camera
+ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:5:5-7:35
+	android:required
+		ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:7:9-32
+	android:name
+		ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:6:9-47
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:9:5-80
+	android:name
+		ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:9:22-77
+uses-permission#android.permission.INTERNET
+ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:10:5-67
+	android:name
+		ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:10:22-64
+application
+ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:12:5-28:19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/fabianlm18/.android/build-cache/79fd08b3fb542cd5dbcc33cd92101e1c2b751642/output/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:design:25.3.1] /home/fabianlm18/.android/build-cache/f4db25cb56e0fb0ace9bac5c14d30cab414f25b2/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:appcompat-v7:25.3.1] /home/fabianlm18/.android/build-cache/07e1ac2b1283c3630133d2572f95aa05464e794f/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /home/fabianlm18/.android/build-cache/c93adbae99442b49549930ab02342e42c258bda7/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /home/fabianlm18/.android/build-cache/c4b6a0098a960eab62f81d0a26e1c2d69f52710c/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:transition:25.3.1] /home/fabianlm18/.android/build-cache/1b6aff84f855d8eea63989f378a4ca30185de0b0/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-v4:25.3.1] /home/fabianlm18/.android/build-cache/da1d646882df678722d4eee0bb646f30d1474458/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] /home/fabianlm18/.android/build-cache/94508b3a0400510887cfd233811551ff4f3e6745/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] /home/fabianlm18/.android/build-cache/85f8eed9535b90348914134055c1ea1e43d0006a/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] /home/fabianlm18/.android/build-cache/9c79855e4e55c6a268dcf3d4725596665b882271/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] /home/fabianlm18/.android/build-cache/a20020840de4edf3440eadce596146eed91aef62/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] /home/fabianlm18/.android/build-cache/eeff385d744b62cd040f4dfdb61107e0575f54ea/output/AndroidManifest.xml:29:5-20
+	android:label
+		ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:15:9-41
+	android:supportsRtl
+		ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:17:9-35
+	android:roundIcon
+		ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:16:9-54
+	android:allowBackup
+		ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:13:9-35
+	android:icon
+		ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:14:9-43
+	android:theme
+		ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:18:9-40
+activity#com.imagepbilliard.imagepbilliard.MainActivity
+ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:19:9-25:20
+	android:name
+		ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:19:19-47
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:20:13-24:29
+action#android.intent.action.MAIN
+ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:21:17-69
+	android:name
+		ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:21:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:23:17-77
+	android:name
+		ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:23:27-74
+activity#com.imagepbilliard.imagepbilliard.PreviewImage
+ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:26:9-50
+	android:name
+		ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:26:19-47
+activity#com.imagepbilliard.imagepbilliard.Suggestion
+ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:27:9-57
+	android:name
+		ADDED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml:27:19-45
+uses-sdk
+INJECTED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/fabianlm18/.android/build-cache/79fd08b3fb542cd5dbcc33cd92101e1c2b751642/output/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:design:25.3.1] /home/fabianlm18/.android/build-cache/f4db25cb56e0fb0ace9bac5c14d30cab414f25b2/output/AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:appcompat-v7:25.3.1] /home/fabianlm18/.android/build-cache/07e1ac2b1283c3630133d2572f95aa05464e794f/output/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /home/fabianlm18/.android/build-cache/c93adbae99442b49549930ab02342e42c258bda7/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /home/fabianlm18/.android/build-cache/c4b6a0098a960eab62f81d0a26e1c2d69f52710c/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /home/fabianlm18/.android/build-cache/be413bf02675b1b23e59565a51741fda8c353c53/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:transition:25.3.1] /home/fabianlm18/.android/build-cache/1b6aff84f855d8eea63989f378a4ca30185de0b0/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:25.3.1] /home/fabianlm18/.android/build-cache/da1d646882df678722d4eee0bb646f30d1474458/output/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.3.1] /home/fabianlm18/.android/build-cache/94508b3a0400510887cfd233811551ff4f3e6745/output/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.3.1] /home/fabianlm18/.android/build-cache/85f8eed9535b90348914134055c1ea1e43d0006a/output/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:25.3.1] /home/fabianlm18/.android/build-cache/9c79855e4e55c6a268dcf3d4725596665b882271/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:25.3.1] /home/fabianlm18/.android/build-cache/a20020840de4edf3440eadce596146eed91aef62/output/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:25.3.1] /home/fabianlm18/.android/build-cache/eeff385d744b62cd040f4dfdb61107e0575f54ea/output/AndroidManifest.xml:21:5-23:58
+	tools:overrideLibrary
+		ADDED from [com.android.support:design:25.3.1] /home/fabianlm18/.android/build-cache/f4db25cb56e0fb0ace9bac5c14d30cab414f25b2/output/AndroidManifest.xml:23:9-59
+	android:targetSdkVersion
+		INJECTED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml
+		INJECTED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml
+		INJECTED from /home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/src/main/AndroidManifest.xml
+meta-data#android.support.VERSION
+ADDED from [com.android.support:design:25.3.1] /home/fabianlm18/.android/build-cache/f4db25cb56e0fb0ace9bac5c14d30cab414f25b2/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:appcompat-v7:25.3.1] /home/fabianlm18/.android/build-cache/07e1ac2b1283c3630133d2572f95aa05464e794f/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /home/fabianlm18/.android/build-cache/c93adbae99442b49549930ab02342e42c258bda7/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /home/fabianlm18/.android/build-cache/c4b6a0098a960eab62f81d0a26e1c2d69f52710c/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /home/fabianlm18/.android/build-cache/be413bf02675b1b23e59565a51741fda8c353c53/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:transition:25.3.1] /home/fabianlm18/.android/build-cache/1b6aff84f855d8eea63989f378a4ca30185de0b0/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-v4:25.3.1] /home/fabianlm18/.android/build-cache/da1d646882df678722d4eee0bb646f30d1474458/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] /home/fabianlm18/.android/build-cache/94508b3a0400510887cfd233811551ff4f3e6745/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] /home/fabianlm18/.android/build-cache/85f8eed9535b90348914134055c1ea1e43d0006a/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] /home/fabianlm18/.android/build-cache/9c79855e4e55c6a268dcf3d4725596665b882271/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] /home/fabianlm18/.android/build-cache/a20020840de4edf3440eadce596146eed91aef62/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.1] /home/fabianlm18/.android/build-cache/eeff385d744b62cd040f4dfdb61107e0575f54ea/output/AndroidManifest.xml:25:5-27:34
+	android:value
+		ADDED from [com.android.support:design:25.3.1] /home/fabianlm18/.android/build-cache/f4db25cb56e0fb0ace9bac5c14d30cab414f25b2/output/AndroidManifest.xml:27:9-31
+	android:name
+		ADDED from [com.android.support:design:25.3.1] /home/fabianlm18/.android/build-cache/f4db25cb56e0fb0ace9bac5c14d30cab414f25b2/output/AndroidManifest.xml:26:9-47

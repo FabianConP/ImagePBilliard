@@ -1,0 +1,7 @@
+#Wed May 31 12:29:46 COT 2017
+base.0=/home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_f1302b44570ad58542f300d818f1e8a4459fdd24
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=/home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_eb5e4afe95d6ce3194ea4b6c8c78dac394914d99/classes.dex
+base.1=/home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_eb5e4afe95d6ce3194ea4b6c8c78dac394914d99
+file.0=/home/fabianlm18/Documents/pycharm_projects/ProyectoFinalTeoria/app/ImagePBilliard/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_f1302b44570ad58542f300d818f1e8a4459fdd24/classes.dex

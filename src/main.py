@@ -23,7 +23,7 @@ def data_uri_to_cv2_img(base64_string):
 class Game:
     def __init__(self, img_str):
         # img = data_uri_to_cv2_img(img_str)
-        image_path = "../images/billiard/b10.jpg"
+        image_path = "../images/billiard/b10_wrapped.jpg"
         img = cv2.imread(image_path)
         # Segment table
         pool_table = rc.get_pool_table(img.copy())
@@ -32,11 +32,15 @@ class Game:
         # Get balls based on image
         circlesf = rc.filter_circles(img.copy(), pool_table.copy(), circles.copy())
         # Get balls position based on table
-        balls_pos = rc.find_position(pool_table, circlesf)
+        self.balls_pos = rc.find_position(pool_table, circlesf)
         # Get angles from simulation for each ball
-        self.angles = sm.solve(balls_pos)
+        self.angles = sm.solve(self.balls_pos)
         print(self.angles)
 
     # Return angles
     def get_angles(self):
         return self.angles
+
+    # Return balls position
+    def get_balls_position(self):
+        return self.balls_pos
